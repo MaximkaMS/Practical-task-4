@@ -1,28 +1,23 @@
-# Practical-task-4
 #include <stdio.h>
-
-int countEqualDivisors(int n) {
-    int count = 0;
-    int i;
-
-    for (i = 1; i <= n; i++) {
-        if (n % i == n / i) {
-            count++;
-        }
-    }
-
-    return count;
-}
 
 int main() {
     int n;
+    int count = 0;
 
+    // Введення числа n
     printf("Введіть натуральне число n: ");
     scanf("%d", &n);
 
-    int result = countEqualDivisors(n);
+    // Перевірка кожного числа від 1 до n-1
+    for (int m = 1; m < n; m++) {
+        // Перевірка умови рівного дільника
+        if (n / m == n % m) {
+            count++; // Збільшення лічильника
+        }
+    }
 
-    printf("Кількість рівних дільників числа %d: %d\n", n, result);
+    // Виведення результату
+    printf("Кількість рівних дільників числа %d: %d\n", n, count);
 
     return 0;
 }
